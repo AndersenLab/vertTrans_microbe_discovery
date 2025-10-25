@@ -1,20 +1,22 @@
 library(dplyr)
 library(ggplot2)
-install.packages("ggtext")
+# install.packages("ggtext")
 library(ggtext)
+library(stringr)
+library(cowplot)
 
-genera <- c("Nematocida","Homo","Mus", "Pseudomonas","Brucella") # Escherichia is not in the 15 highest % minimizers for any species
+genera <- c("Nematocida", "Pseudomonas","Brucella") # Escherichia is not in the 15 highest % minimizers for any species
 
 control_ni <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/processed_data/c_elegans/Kraken2/microsporidia_ctr/notInfected/EukPath/all_strains.tsv", col_names = c("strain","perc","x1","x2","x3","x4","x5","x6","genus")) %>%
   dplyr::filter(x5 == "G") %>%
   dplyr::distinct(strain) %>%
-  dplyr::mutate(perc = 0, genus = NA, species = "Control (not-infected)") 
+  dplyr::mutate(perc = 0, genus = NA, species = "C.e. control (not-infected)") 
 
 control_ni <- tidyr::expand_grid(
-  strain = control_ni_strains$strain,
+  strain = control_ni$strain,
   genus  = genera
 ) %>%
-  mutate(perc = 0, species = "Control (not-infected)")
+  mutate(perc = 0, species = "C.e. control (not-infected)")
 
 control_i <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/processed_data/c_elegans/Kraken2/microsporidia_ctr/infected/EukPath/all_strains.tsv", col_names = c("strain","perc","x1","x2","x3","x4","x5","x6","genus")) %>%
   dplyr::filter(x5 == "G") %>%
@@ -22,7 +24,7 @@ control_i <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen
   dplyr::filter(genus %in% genera) %>%
   dplyr::select(strain,perc,genus) %>%
   distinct() %>%
-  dplyr::mutate(species = "Control (infected)")  %>%
+  dplyr::mutate(species = "C.e. control (infected)")  %>%
   dplyr::arrange(desc(perc)) 
 
 
@@ -73,34 +75,72 @@ all <- bind_rows(control_ni, control_i, ce, cb, ct) %>%
       "C. elegans"   = "<i>C. elegans</i>",
       "C. briggsae"  = "<i>C. briggsae</i>",
       "C. tropicalis"= "<i>C. tropicalis</i>",
-      "CTR: Inf"     = "Control (infected)",
-      "CTR: not-Inf" = "Control (not-infected)"))
+      "C.e. control (infected)"     = "<i>C.e.</i>",
+      "C.e. control (not-infected)" = "<i>C.e.</i>")) 
 
-heatmap <- ggplot(all, aes(x = strain, y = genus, fill = perc)) +
+space <- "\u00A0" 
+
+ctr_plot <- all %>%
+  dplyr::filter(grepl("<i>C.e.",species_lab)) %>%
+  dplyr::mutate(species_lab = ifelse(species_lab == "<i>C.e.</i>", paste0("<i>C.e.</i>", "         "," control"), paste0("<i>C.e.</i>", "     ", " control"))) %>%
+  dplyr::mutate(control = ifelse(species == "C.e. control (infected)", "(infected)", "(not-infected)")) 
+
+species_plot <- all %>%
+  dplyr::filter(!grepl("<i>C.e.", species_lab)) %>%
+  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
+
+heatmap1 <- ggplot(ctr_plot, aes(x = strain, y = genus, fill = perc)) +
   geom_tile(color = "white", linewidth = 0.15) +
-  facet_wrap(~ species_lab, scales = "free_x", nrow = 1) +
+  facet_wrap(~ species_lab+control, scales = "free_x", nrow = 1) +
   scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers", limits = c(0, 100)) +
   labs(x = NULL, y = NULL) +
   scale_y_discrete(expand = c(0,0)) +
   theme(
     panel.grid = element_blank(),
     panel.border = element_rect(fill = NA, color = 'black'),
-    legend.title = element_text(size = 16, color = 'black'), 
-    legend.text  = element_text(size = 14),
+    # legend.title = element_text(size = 16, color = 'black'), 
+    # legend.text  = element_text(size = 14),
     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black'),
     # strip.text = element_text(face = "bold.italic", size = 16),
     strip.text = ggtext::element_markdown(face = "bold", size = 15),  
     panel.spacing.x = unit(0.2, "lines"),
     axis.text.y = element_text(size = 14, face = 'bold.italic', color = 'black'),
-    legend.position = "right")
-heatmap
+    plot.margin = margin(l = 20, b = 64, t = 5.5),
+    legend.position = "none")
+heatmap1
 
 
+heatmap2 <- ggplot(species_plot, aes(x = strain, y = genus, fill = perc)) +
+  geom_tile(color = "white", linewidth = 0.15) +
+  facet_wrap(~ species_lab, scales = "free_x", nrow = 1) +
+  scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers     ", limits = c(0, 100)) +
+  labs(x = NULL, y = NULL) +
+  scale_y_discrete(expand = c(0,0)) +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.y = element_blank(),
+    panel.border = element_rect(fill = NA, color = 'black'),
+    legend.title = element_text(size = 14, color = 'black'), 
+    legend.text  = element_text(size = 11),
+    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black'),
+    strip.text = ggtext::element_markdown(face = "bold", size = 15),
+    panel.spacing.x = unit(0.2, "lines"),
+    axis.ticks.y = element_blank(),
+    strip.text.x = element_text(margin = margin(0.58,0,0.58,0, "cm")),
+    legend.position = 'bottom', 
+    legend.justification.bottom = "left")
+heatmap2
+
+library(ggplotify)
+p1 <- as.ggplot(ggplotGrob(heatmap1))
+
+final_plot <- cowplot::plot_grid(
+  p1, NULL, heatmap2,                  
+  ncol = 3,
+  rel_widths = c(0.667, 0.03, 1),
+  align = "h"
+)
+final_plot
 
 
-
-
-
-
-
-
+ggsave("",final_plot, dpi = 600, width = 7.5, height = 5)
