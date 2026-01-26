@@ -6,7 +6,18 @@ library(stringr)
 library(cowplot)
 library(ggplotify)
 
-genera <- c("Nematocida", "Pseudomonas","Brucella") # Escherichia is not in the 15 highest % minimizers for any species
+# genera <- c("Nematocida", "Pseudomonas","Brucella") # Escherichia is not in the 15 highest % minimizers for any species
+
+# ECA1191 (C. elegans with Achromobacter sp., 11.69% minimizer alignment), - already present
+# NIC1781 (C. elegans with Brevundimonas diminuta sp., 10.48%), - already present
+# NIC2011 (C. elegans with Pseudochrobactrum sp., 12.84%),- NOT present in top 15
+# QG2833 (C. elegans with Cupriavidus cauae, 59.78%),  - already present
+# NIC1204 (C. briggsae with Myroides sp. Bacteria, 11.8%), - NOT present in top 15
+# ED3032 (C. briggsae with Kocuria rhizophila, 14.9%), - NOT present in top 15
+# ECA1297 (C. elegans with Streptomyces sp., 10.26%). - already present
+
+genera <- c("Nematocida", "Achromobacter","Brevundimonas", "Pseudochrobactrum", "Cupriavidus", "Myroides", "Kocuria", "Streptomyces") # Genera that are mentioned in the paper 
+
 
 control_ni <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/processed_data/c_elegans/Kraken2/microsporidia_ctr/notInfected/EukPath/all_strains.tsv", col_names = c("strain","perc","x1","x2","x3","x4","x5","x6","genus")) %>%
   dplyr::filter(x5 == "G") %>%
@@ -34,10 +45,13 @@ ce <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalig
   dplyr::filter(genus %in% genera) %>%
   dplyr::select(strain,perc,genus) %>%
   dplyr::distinct() %>%
-  dplyr::mutate(species = "C. elegans") %>%
-  dplyr::arrange(desc(perc))
+  # dplyr::mutate(species = "C. elegans") %>%
+  # dplyr::arrange(desc(perc))
+  dplyr::mutate(species = "C. elegans", force_top = strain %in% c("NIC2011", "ECA1191", "NIC1781", "QG2833", "ECA1297")) %>%
+  dplyr::arrange(desc(force_top), desc(perc)) %>%
+  dplyr::select(-force_top)
   
-ce_top15strains <- ce %>% dplyr::slice_head(n=15) %>% dplyr::pull(strain)
+ce_top15strains <- ce %>% dplyr::distinct(strain) %>% dplyr::slice_head(n=9) %>% dplyr::pull(strain)
 
 ce <- ce %>% dplyr::filter(strain %in% ce_top15strains)
   
@@ -47,10 +61,13 @@ cb <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalig
   dplyr::filter(genus %in% genera) %>%
   dplyr::select(strain,perc,genus) %>%
   dplyr::distinct() %>%
-  dplyr::mutate(species = "C. briggsae")  %>%
-  dplyr::arrange(desc(perc))
+  # dplyr::mutate(species = "C. briggsae")  %>%
+  # dplyr::arrange(desc(perc))
+  dplyr::mutate(species = "C. briggsae", force_top = strain %in% c("NIC1204", "ED3032")) %>%
+  dplyr::arrange(desc(force_top), desc(perc)) %>%
+  dplyr::select(-force_top)
 
-cb_top15strains <- cb %>% dplyr::slice_head(n=15) %>% dplyr::pull(strain)
+cb_top15strains <- cb %>% dplyr::distinct(strain) %>% dplyr::slice_head(n=9) %>% dplyr::pull(strain)
 
 cb <- cb %>% dplyr::filter(strain %in% cb_top15strains)
 
@@ -62,7 +79,7 @@ ct <- readr::read_tsv("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalig
   dplyr::mutate(species = "C. tropicalis")  %>%
   dplyr::arrange(desc(perc))
 
-ct_top15strains <- ct %>% dplyr::slice_head(n=15) %>% dplyr::pull(strain)
+ct_top15strains <- ct %>% dplyr::distinct(strain) %>% dplyr::slice_head(n=9) %>% dplyr::pull(strain)
 
 ct <- ct %>% dplyr::filter(strain %in% ct_top15strains)
 
@@ -79,7 +96,7 @@ all <- bind_rows(control_ni, control_i, ce, cb, ct) %>%
       "C.e. control (infected)"     = "<i>C.e.</i>",
       "C.e. control (not-infected)" = "<i>C.e.</i>")) 
 
-space <- "\u00A0" 
+# space <- "\u00A0" 
 
 ctr_plot <- all %>%
   dplyr::filter(grepl("<i>C.e.",species_lab)) %>%
@@ -90,58 +107,58 @@ species_plot <- all %>%
   dplyr::filter(!grepl("<i>C.e.", species_lab)) %>%
   dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
 
-heatmap1 <- ggplot(ctr_plot, aes(x = strain, y = genus, fill = perc)) +
-  geom_tile(color = "white", linewidth = 0.15) +
-  facet_wrap(~ species_lab+control, scales = "free_x", nrow = 1) +
-  scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers", limits = c(0, 100)) +
-  labs(x = NULL, y = NULL) +
-  scale_y_discrete(expand = c(0,0)) +
-  theme(
-    panel.grid = element_blank(),
-    panel.border = element_rect(fill = NA, color = 'black'),
-    # legend.title = element_text(size = 16, color = 'black'), 
-    # legend.text  = element_text(size = 14),
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black', size = 7),
-    # strip.text = element_text(face = "bold.italic", size = 16),
-    strip.text = ggtext::element_markdown(face = "bold", size = 10),
-    strip.text.x = element_text(margin = margin(0.155,0,0.155,0, "cm")),
-    panel.spacing.x = unit(0.2, "lines"),
-    axis.text.y = element_text(size = 11, face = 'bold.italic', color = 'black'),
-    plot.margin = margin(l = 20), #b = 64, t = 5.5),
-    legend.position = "none")
-heatmap1
-
-
-heatmap2 <- ggplot(species_plot, aes(x = strain, y = genus, fill = perc)) +
-  geom_tile(color = "white", linewidth = 0.15) +
-  facet_wrap(~ species_lab, scales = "free_x", nrow = 1) +
-  scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers     ", limits = c(0, 100)) +
-  labs(x = NULL, y = NULL) +
-  scale_y_discrete(expand = c(0,0)) +
-  theme(
-    panel.grid = element_blank(),
-    axis.text.y = element_blank(),
-    panel.border = element_rect(fill = NA, color = 'black'),
-    legend.title = element_text(size = 9, color = 'black'), 
-    legend.text  = element_text(size = 8),
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black', size = 7),
-    strip.text = ggtext::element_markdown(face = "bold", size = 10),
-    panel.spacing.x = unit(0.2, "lines"),
-    axis.ticks.y = element_blank(),
-    strip.text.x = element_text(margin = margin(0.5,0,0.5,0, "cm")),
-    legend.position = 'bottom', 
-    legend.justification.bottom = "left")
-heatmap2
-
-# p1 <- as.ggplot(ggplotGrob(heatmap1))
-
-final_plot <- cowplot::plot_grid(
-  heatmap1, heatmap2,                  
-  ncol = 2,
-  rel_widths = c(0.667, 1),
-  align = "h"
-)
-final_plot
+# heatmap1 <- ggplot(ctr_plot, aes(x = strain, y = genus, fill = perc)) +
+#   geom_tile(color = "white", linewidth = 0.15) +
+#   facet_wrap(~ species_lab+control, scales = "free_x", nrow = 1) +
+#   scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers", limits = c(0, 100)) +
+#   labs(x = NULL, y = NULL) +
+#   scale_y_discrete(expand = c(0,0)) +
+#   theme(
+#     panel.grid = element_blank(),
+#     panel.border = element_rect(fill = NA, color = 'black'),
+#     # legend.title = element_text(size = 16, color = 'black'), 
+#     # legend.text  = element_text(size = 14),
+#     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black', size = 7),
+#     # strip.text = element_text(face = "bold.italic", size = 16),
+#     strip.text = ggtext::element_markdown(face = "bold", size = 10),
+#     strip.text.x = element_text(margin = margin(0.155,0,0.155,0, "cm")),
+#     panel.spacing.x = unit(0.2, "lines"),
+#     axis.text.y = element_text(size = 11, face = 'bold.italic', color = 'black'),
+#     plot.margin = margin(l = 20), #b = 64, t = 5.5),
+#     legend.position = "none")
+# heatmap1
+# 
+# 
+# heatmap2 <- ggplot(species_plot, aes(x = strain, y = genus, fill = perc)) +
+#   geom_tile(color = "white", linewidth = 0.15) +
+#   facet_wrap(~ species_lab, scales = "free_x", nrow = 1) +
+#   scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers     ", limits = c(0, 100)) +
+#   labs(x = NULL, y = NULL) +
+#   scale_y_discrete(expand = c(0,0)) +
+#   theme(
+#     panel.grid = element_blank(),
+#     axis.text.y = element_blank(),
+#     panel.border = element_rect(fill = NA, color = 'black'),
+#     legend.title = element_text(size = 9, color = 'black'), 
+#     legend.text  = element_text(size = 8),
+#     axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black', size = 7),
+#     strip.text = ggtext::element_markdown(face = "bold", size = 10),
+#     panel.spacing.x = unit(0.2, "lines"),
+#     axis.ticks.y = element_blank(),
+#     strip.text.x = element_text(margin = margin(0.5,0,0.5,0, "cm")),
+#     legend.position = 'bottom', 
+#     legend.justification.bottom = "left")
+# heatmap2
+# 
+# # p1 <- as.ggplot(ggplotGrob(heatmap1))
+# 
+# final_plot <- cowplot::plot_grid(
+#   heatmap1, heatmap2,                  
+#   ncol = 2,
+#   rel_widths = c(0.667, 1),
+#   align = "h"
+# )
+# final_plot
 
 
 # ggsave("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/pathogenDiscovery-sh/plots/heatmap.png",final_plot, dpi = 600, width = 7.5, height = 5)
@@ -153,9 +170,9 @@ no_cow <- ctr_plot %>% dplyr::bind_rows(species_plot) %>%
                                             "C. elegans"   = "<i>C. elegans</i>",
                                             "C. briggsae"  = "<i>C. briggsae</i>",
                                             "C. tropicalis"= "<i>C. tropicalis</i>",
-                                            "C.e. control (infected)"     = "<i>C.e.</i> control (infected)",
-                                            "C.e. control (not-infected)" = "<i>C.e.</i> control (not-infected)")) %>%
-  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C.e.</i> control (infected)","<i>C.e.</i> control (not-infected)","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
+                                            "C.e. control (infected)"     = "<i>C.e.</i> Nematocide-infected",
+                                            "C.e. control (not-infected)" = "<i>C.e.</i> Uninfected")) %>%
+  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C.e.</i> Nematocide-infected","<i>C.e.</i> Uninfected","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
 
 no_cow_plt <- ggplot(no_cow, aes(x = strain, y = genus, fill = perc)) +
   geom_tile(color = "white", linewidth = 0.15) +
@@ -168,7 +185,7 @@ no_cow_plt <- ggplot(no_cow, aes(x = strain, y = genus, fill = perc)) +
     panel.border = element_rect(fill = NA, color = 'black'),
     legend.title = element_text(size = 14, color = 'black'),
     legend.text  = element_text(size = 11),
-    axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1, color = 'black', size = 12),
+    axis.text.x = element_text(angle = 75, vjust = 1, hjust = 1, color = 'black', size = 12),
     # strip.text = element_text(face = "bold.italic", size = 16),
     strip.text = ggtext::element_markdown(face = "bold", size = 14),
     # strip.text.x = element_text(margin = margin(0.155,0,0.155,0, "cm")),
@@ -178,4 +195,6 @@ no_cow_plt <- ggplot(no_cow, aes(x = strain, y = genus, fill = perc)) +
     legend.position = 'bottom')
     # legend.justification.bottom = "middle")
 no_cow_plt
+
+# ggsave(no_cow_plt, "/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/pathogenDiscovery-sh/plots/heatmap_20260126", width = 7.5, height = 5, dpi = 600)
 
