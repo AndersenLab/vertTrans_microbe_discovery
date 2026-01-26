@@ -170,31 +170,30 @@ no_cow <- ctr_plot %>% dplyr::bind_rows(species_plot) %>%
                                             "C. elegans"   = "<i>C. elegans</i>",
                                             "C. briggsae"  = "<i>C. briggsae</i>",
                                             "C. tropicalis"= "<i>C. tropicalis</i>",
-                                            "C.e. control (infected)"     = "<i>C.e.</i> Nematocide-infected",
-                                            "C.e. control (not-infected)" = "<i>C.e.</i> Uninfected")) %>%
-  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C.e.</i> Nematocide-infected","<i>C.e.</i> Uninfected","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
+                                            "C.e. control (infected)"     = "<i>C. elegans</i><br>Nematocide-infected",
+                                            "C.e. control (not-infected)" = "<i>C. elegans</i><br>Uninfected")) %>%
+  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C. elegans</i><br>Nematocide-infected","<i>C. elegans</i><br>Uninfected","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
 
 no_cow_plt <- ggplot(no_cow, aes(x = strain, y = genus, fill = perc)) +
   geom_tile(color = "white", linewidth = 0.15) +
   facet_wrap(~ species_lab, scales = "free_x", nrow = 1) +
   scale_fill_gradient(low = "skyblue", high = "red", name = "Percent minimizers", limits = c(0, 100)) +
   labs(x = NULL, y = NULL) +
-  scale_y_discrete(expand = c(0,0)) +
+  scale_y_discrete(expand = c(0,0), labels = c("Pseudochrobactrum" = "Pseudo-\nchrobactrum")) +
   theme(
     panel.grid = element_blank(),
     panel.border = element_rect(fill = NA, color = 'black'),
-    legend.title = element_text(size = 14, color = 'black'),
-    legend.text  = element_text(size = 11),
-    axis.text.x = element_text(angle = 75, vjust = 1, hjust = 1, color = 'black', size = 12),
+    legend.title = element_text(size = 10, color = 'black'),
+    legend.text  = element_text(size = 8),
+    axis.text.x = element_text(angle = 75, vjust = 1, hjust = 1, color = 'black', size = 10),
     # strip.text = element_text(face = "bold.italic", size = 16),
-    strip.text = ggtext::element_markdown(face = "bold", size = 14),
+    strip.text = ggtext::element_markdown(face = "bold", size = 7.3),
     # strip.text.x = element_text(margin = margin(0.155,0,0.155,0, "cm")),
     panel.spacing.x = unit(0.2, "lines"),
-    axis.text.y = element_text(size = 12, face = 'bold.italic', color = 'black'),
-    plot.margin = margin(l = 20), #b = 64, t = 5.5),
+    axis.text.y = element_text(size = 10, face = 'bold.italic', color = 'black'),
+    plot.margin = margin(l = 0.01, b = -1, t = 2, r = 2),
     legend.position = 'bottom')
-    # legend.justification.bottom = "middle")
 no_cow_plt
 
-# ggsave(no_cow_plt, "/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/pathogenDiscovery-sh/plots/heatmap_20260126", width = 7.5, height = 5, dpi = 600)
+ggsave("/vast/eande106/projects/Lance/THESIS_WORK/pathogen_unalignedBAM_SDSU/pathogenDiscovery-sh/plots/heatmap_20260126.png", no_cow_plt, width = 7.5, height = 5.5, dpi = 600)
 
