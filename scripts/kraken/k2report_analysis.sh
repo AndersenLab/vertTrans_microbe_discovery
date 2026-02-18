@@ -90,8 +90,6 @@ fi
 
 
 # Biased search for Rickettsiales order - 4% cutoff
-echo -e "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA" > $biasedfile
-
 if [[ $2 == "biased" && $1 != "control" ]]; then
     echo -e "NA\tNA\tNA\tNA\tNA\tNA\tNA\tNA\tNA" > $biasedfile
 
