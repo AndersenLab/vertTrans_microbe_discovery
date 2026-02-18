@@ -12,4 +12,7 @@ This repository contains scripts for detecting potentially vertically transmitte
 #### Kraken2 analysis on wild strains of self-fertilizing *Caenorhabditis* species:
 	scripts/kraken/kraken_wild_strains.sh
 
+#### Filtering Kraken2 output
+	scripts/kraken/wild_strain_kraken_filtering.sh
+
 
