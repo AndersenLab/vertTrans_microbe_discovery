@@ -1,10 +1,5 @@
 #!/bin/bash
 
-####################################### INSERT CODE FOR REMOVING MISC WHITE SPACE IN THE LAST COLUMN 
-
-# performed awk '($7 == "G" || $7 == "S") && $9 != "Caenorhabditis" {print $0}' C_tropicalis_Kraken2classification_10perc.txt > non_CaenGenera_10percKraken2class_Ct.txt
-# to filter out Caenorhabditis from being classified and only keep genera
-
 if [[ $1 == "c_elegans" ]]; then
     concat_file="../../processed_data/Kraken2/c_elegans/c_elegans_Kraken2classification_10perc.txt"
     key_genera="../../raw_data/genera_filter.txt"

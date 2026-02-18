@@ -28,9 +28,9 @@ if [[ $1 != "control" ]]; then
     for strain in "$k2reports"/*.k2report; do 
         strain_name=$(basename "$strain" .k2report)
         hits_found=0
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '
             BEGIN {found_genus=0}
             $1 >= 10.0 && $6 == "G" {found_genus=1}
             $1 >= 10.0 && $6 == "S" && found_genus {
@@ -49,9 +49,9 @@ else
     for strain in "$infected"/*.k2report; do 
         strain_name=$(basename $strain .k2report)
         hits_found=0
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '
             BEGIN {found_genus=0}
             $1 >= 10.0 && $6 == "G" {found_genus=1}
             $1 >= 10.0 && $6 == "S" && found_genus {
@@ -69,9 +69,9 @@ else
     for strain in "$not_infected"/*.k2report; do 
         strain_name=$(basename $strain .k2report)
         hits_found=0
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
-        awk -v strain_name="$strain_name" '
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "F" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '$1 >= 10.0 && $6 == "G" {print strain_name, $0}' $strain >> $Kraken_class_file
+        awk -v OFS='\t' -v strain_name="$strain_name" '
             BEGIN {found_genus=0}
             $1 >= 10.0 && $6 == "G" {found_genus=1}
             $1 >= 10.0 && $6 == "S" && found_genus {
@@ -99,7 +99,7 @@ if [[ $2 == "biased" && $1 != "control" ]]; then
         strain_name=$(basename "$strain" .k2report)
         hits_found=0
         
-        awk -v strain_name="$strain_name" '
+        awk -v OFS='\t' -v strain_name="$strain_name" '
             BEGIN {found_rickettsiales=0}
             # If we find "Rickettsiales" at Order level (column 6 == "O") and >= 4.0% (column 1)
             $1 >= 4.0 && $6 == "O" && $8 == "Rickettsiales" {

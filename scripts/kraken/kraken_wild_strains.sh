@@ -3,6 +3,7 @@
 # This script is meant to be run by iterating over a list of BAMs to extract unaligned reads and run Kraken2 on. 
 # An example of how this script should be run:
 # while read -r bam; do bash kraken_wild_strains.sh c_elegans $bam; done < <$c_elegans_bam_dir/bam_list>
+# Download BAMs from CaeNDR
 
 bam=$2
 
