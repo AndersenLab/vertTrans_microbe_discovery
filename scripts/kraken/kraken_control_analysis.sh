@@ -18,6 +18,7 @@ fi
 
 IFS=',' read -a sample_array <<< "$samples"
 
+# Extracting unaligned reads for control samples
 for sample in "${sample_array[@]}"; do
     input_bam="$read_dir/${sample}.bam"
     output_fastq="$unaligned_dir/unaligned_${sample}.fastq"
