@@ -8,7 +8,7 @@
 bam=$2
 
 unaligned_dir="/<path/to/store_unaligned_FASTQs/$1/unaligned_reads"
-output="/<path/to/store/Kraken2Output>/$1/Kraken2"
+output="../../processed_data/Kraken2/$1" # a path to store kraken output
 
 strain_name=$(basename $bam .bam)
 
