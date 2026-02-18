@@ -6,7 +6,7 @@ This repository contains scripts for detecting potentially vertically transmitte
 #### Build Kraken2 database:
 	scripts/kraken/databaseBuild.sh
 
-#### Control analysis with microsporidia-infected strains (positive controls) and non-infected strains (negative control):
+#### Control analysis with microsporidia-infected strains (positive control) and non-infected strains (negative control):
 	scripts/kraken/kraken_control_analysis.sh
 
 #### Kraken2 analysis on wild strains of self-fertilizing *Caenorhabditis* species:
