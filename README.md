@@ -15,4 +15,5 @@ This repository contains scripts for detecting potentially vertically transmitte
 #### Filtering Kraken2 output
 	scripts/kraken/wild_strain_kraken_filtering.sh
 
-
+#### Creating heatmap figure
+	scripts/figure/heatmap.R
