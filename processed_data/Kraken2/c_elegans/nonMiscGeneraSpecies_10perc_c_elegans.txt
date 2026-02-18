@@ -1,0 +1,194 @@
+ECA2482  88.01	2473900	1077910	67878507	1166947	G	40323	              Stenotrophomonas
+NIC231  83.61	4387018	4226170	74776236	2018038	G	44249	                Paenibacillus
+JU4200  83.11	4610560	673845	61905416	752681	G	44249	                Paenibacillus
+NIC1784  80.89	4042658	5482	88359606	961601	G	1330545	              Lelliottia
+JU1400  79.33	4092099	3938609	69609306	2025324	G	44249	                Paenibacillus
+ECA2547  75.78	862455	4865	21615251	1064835	G	579	              Kluyvera
+ECA756  75.73	6014516	15968	101231818	736465	G	1330545	              Lelliottia
+ECA756  75.33	5982868	5982868	99840805	721945	S	61646	                Lelliottia amnigena
+ECA2547  75.22	856149	856149	20608707	1015771	S	61648	                Kluyvera intermedia
+XZ2210  75.18	5639654	1040158	138739477	849527	G	41275	              Brevundimonas
+ECA2582  75.09	1359590	7946	33909330	1065127	G	579	              Kluyvera
+ECA2582  74.53	1349515	1349515	32323060	1016349	S	61648	                Kluyvera intermedia
+WN2116  70.42	205838	55834	3823728	927585	G	222	              Achromobacter
+JU3792  68.44	2923371	625228	51713570	612379	G	234	                Brucella
+EG4946  66.78	1342585	1033369	19450818	1267356	G	234	                Brucella
+ECA769  65.85	688435	156303	17954212	1180649	G	265	              Paracoccus
+QG2833  65.48	1027776	60219	21471137	1114804	G	106589	              Cupriavidus
+ECA2111  64.40	2716949	473505	83056951	2208587	G	507	              Alcaligenes
+ECA822  64.10	889494	73197	19495191	1486594	G	44249	                Paenibacillus
+ECA1195  63.96	1827165	282661	39882129	1079534	G	1386	                Bacillus
+NIC1787  62.90	27456826	6674083	685955954	1622479	G	222	              Achromobacter
+NIC1784  60.40	3018513	3018513	33688847	357300	S	2153385	                  Lelliottia sp. WB101
+QG2833  59.78	938310	938310	14492094	736391	S	2608999	                Cupriavidus cauae
+JU4166  58.77	1874358	586057	52277778	1391279	G	613	              Serratia
+ECA779  58.69	4010702	10592	66769473	733753	G	1330545	              Lelliottia
+ECA779  58.39	3990171	3990171	65855949	718937	S	61646	                Lelliottia amnigena
+ECA1193  57.59	629234	103531	13389965	1042505	G	1386	                Bacillus
+ECA1205  54.15	381929	67466	7858803	1011299	G	1386	                Bacillus
+ECA2111  52.35	2208538	2208441	39341022	906995	S	511	                Alcaligenes faecalis
+ECA769  50.34	526311	526311	7670007	571868	S	147645	                Paracoccus yeei
+JU4212  50.16	502725	346154	13632914	1278447	G	613	              Serratia
+XZ2210  49.23	3693585	3693585	40617564	224900	S	293	                Brevundimonas diminuta
+ECA1073  49.01	146099	0	747465	129	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA1073  49.01	146100	0	747468	130	G	694002	                    Betacoronavirus
+NIC1811  48.38	6318015	1463392	81040246	305273	G	41275	              Brevundimonas
+JU1516  47.27	723099	1576	12507037	781740	G	1330545	              Lelliottia
+NIC1781  45.53	2007910	470158	25533166	369617	G	41275	              Brevundimonas
+ECA2477  45.04	2920012	619707	51964930	653412	G	234	                Brucella
+ECA1223  44.72	572347	38353	13856600	1459763	G	44249	                Paenibacillus
+ECA2482  43.78	1230533	1196301	10113342	186863	S	40324	                  Stenotrophomonas maltophilia
+NIC1788  41.63	1567399	390794	38371487	1440698	G	222	              Achromobacter
+JU2287  41.02	116278	14476	1705013	991957	G	44249	                Paenibacillus
+ECA1222  40.33	255897	16163	6292904	1329918	G	44249	                Paenibacillus
+JU4166  40.26	1284053	1283506	14383285	405549	S	615	                Serratia marcescens
+JU3792  40.16	1715361	1715361	21838038	275010	S	419475	                  Brucella pseudogrignonensis
+ECA1224  39.02	293556	19842	7034134	1346263	G	44249	                Paenibacillus
+ECA363  38.26	759612	67660	14472274	2006778	G	44249	                Paenibacillus
+QG4158  36.80	44986	5417	1037459	486757	G	308865	                  Elizabethkingia
+ECA2344  36.64	308425	67292	5169060	527680	G	234	                Brucella
+NIC1787  36.44	15906279	15744210	151424857	360411	S	85698	                Achromobacter xylosoxidans
+ECA1715  36.42	1470841	1094620	40348705	1489809	G	1386	                Bacillus
+ECA1185  35.81	188058	12797	4549149	1212229	G	44249	                Paenibacillus
+ECA1186  35.22	181237	30618	3800534	863314	G	1386	                Bacillus
+JU346  34.81	441617	425319	7631893	1902162	G	44249	                Paenibacillus
+JU4138  34.76	171906	156	4146050	791600	G	528	                Ochrobactrum
+JU4138  34.45	170360	170360	4111196	786182	S	271865	                  Ochrobactrum quorumnocens
+ECA2429  34.33	664483	92773	19848134	1616086	G	507	              Alcaligenes
+JU3791  34.27	335208	3541	7176830	1075377	G	28453	                  Sphingobacterium
+WN2080  33.94	845331	224165	20912858	1023992	G	40323	              Stenotrophomonas
+NIC1803  33.56	1046798	87757	34185939	1167070	G	507	              Alcaligenes
+ECA1213  32.88	171504	11672	4148824	1215363	G	44249	                Paenibacillus
+JU4196  32.10	114368	29564	2730727	1015993	G	1883	                Streptomyces
+JU1926  31.98	229951	25124	4504388	1161082	G	44249	                Paenibacillus
+ECA1195  31.48	899419	884043	8413758	220397	S	1428	                    Bacillus thuringiensis
+ECA1208  30.89	110035	18489	2349276	744509	G	1386	                Bacillus
+NIC1803  30.45	949734	949730	18652813	657561	S	511	                Alcaligenes faecalis
+ECA1201  30.29	139264	23799	2909078	806963	G	1386	                Bacillus
+ECA2429  29.18	564838	564811	10110061	714576	S	511	                Alcaligenes faecalis
+ECA1225  28.71	165635	10785	4024943	1162820	G	44249	                Paenibacillus
+WN2116  27.77	81156	79126	549111	132957	S	85698	                Achromobacter xylosoxidans
+ECA1193  27.56	301102	296125	2690001	217247	S	1428	                    Bacillus thuringiensis
+ECA2477  27.00	1750394	1750394	23880018	321419	S	419475	                  Brucella pseudogrignonensis
+QG4158  26.49	32384	32384	456469	218625	S	1756150	                    Elizabethkingia ursingii
+ECA2569  26.21	207500	48983	961025	63050	G	547	              Enterobacter
+ECA1203  26.19	114626	19465	2406969	736017	G	1386	                Bacillus
+ECA1220  25.96	127631	8643	3048149	1008075	G	44249	                Paenibacillus
+ECA2644  25.95	939646	229796	4175848	68966	G	547	              Enterobacter
+ECA1205  25.71	181323	178335	1580436	210170	S	1428	                    Bacillus thuringiensis
+WN2112  25.71	40459	9364	643909	270910	G	234	                Brucella
+JU3398  24.98	146207	15993	2835812	925656	G	44249	                Paenibacillus
+JU3791  24.80	242567	242567	3709604	555420	S	2853439	                      Sphingobacterium sp. E70
+NIC1796  24.77	131057	10819	4147959	1016444	G	507	              Alcaligenes
+NIC259  24.73	311704	149016	6415067	1208855	G	40323	              Stenotrophomonas
+NIC1788  23.92	900762	891986	8487458	318056	S	85698	                Achromobacter xylosoxidans
+ECA1229  23.43	115835	7674	2829229	991121	G	44249	                Paenibacillus
+NIC1804  22.86	641657	1366	10908023	779435	G	1330545	              Lelliottia
+JU1516  22.85	349474	349474	2977343	182735	S	2067959	                  Lelliottia sp. AC1
+JU363  22.85	421285	294724	6879560	1223113	G	40323	              Stenotrophomonas
+NIC1796  22.34	118193	118193	2280494	570661	S	511	                Alcaligenes faecalis
+NIC1699  22.30	31974	1394	582869	254007	G	149698	                Massilia
+ECA1203  22.26	97423	6444	2363168	904741	G	44249	                Paenibacillus
+WN2080  22.23	553761	439008	5100432	258199	S	40324	                  Stenotrophomonas maltophilia
+ECA2421  21.95	497602	123229	6021776	399664	G	41275	              Brevundimonas
+NIC1789  20.56	127764	10607	4139137	991790	G	507	              Alcaligenes
+ECA2344  20.31	171000	171000	2156386	217426	S	419475	                  Brucella pseudogrignonensis
+JU1249  20.26	86791	41	1505584	875925	G	4512	                                            Hordeum
+JU1249  20.25	86742	4447	1503894	875832	S	4513	                                              Hordeum vulgare
+ECA1201  20.04	92122	6287	2217537	847477	G	44249	                Paenibacillus
+NIC1699  19.68	28210	28210	436142	187708	S	2861282	                    Massilia sp. NP310
+ECA2477  19.27	1249503	9565	11762116	309829	G	547	              Enterobacter
+TWN2794  19.15	67136	520	2133959	600760	G	2803850	                Mammaliicoccus
+TWN2794  18.95	66457	66457	1990293	553736	S	1296	                  Mammaliicoccus sciuri
+WN2067  18.89	81713	5449	1983945	963970	G	44249	                Paenibacillus
+ECA1731  18.84	1619983	556500	11163524	134527	G	354349	              Pseudochrobactrum
+TWN2803  18.74	56596	473	1761344	564048	G	2803850	                Mammaliicoccus
+ECA2477  18.65	1209507	1209507	11161543	293430	S	2724468	                  Enterobacter sp. JUb54
+NIC272  18.57	183743	103351	2595321	948082	G	40323	              Stenotrophomonas
+NIC1789  18.56	115333	115333	2272528	556148	S	511	                Alcaligenes faecalis
+TWN2803  18.55	56010	56010	1642143	527653	S	1296	                  Mammaliicoccus sciuri
+NIC1788  17.91	674440	144350	11710818	534364	G	234	                Brucella
+JU4237  17.71	133429	39382	652189	45123	G	234	                Brucella
+ECA1186  17.62	90687	5969	2195705	846475	G	44249	                Paenibacillus
+JU394  16.83	102076	97794	2442490	1303276	G	44249	                Paenibacillus
+ECA1186  16.73	86092	84747	762930	174692	S	1428	                    Bacillus thuringiensis
+NIC273  16.73	69358	39825	941419	569137	G	40323	              Stenotrophomonas
+NIC265  16.20	263679	126544	5473849	1178799	G	40323	              Stenotrophomonas
+JU4215  16.15	27485	19112	756481	344336	G	613	              Serratia
+JU4167  15.63	25344	739	790376	430513	S	4929	                          Meyerozyma guilliermondii
+JU4167  15.63	25355	11	790751	430513	G	766728	                        Meyerozyma
+ECA2656  15.52	15505	0	76203	105	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA2656  15.52	15505	0	76204	106	G	694002	                    Betacoronavirus
+JU4200  15.36	852118	852118	4389593	55946	S	2777983	                    Paenibacillus sp. JNUCC-31
+QG2818  15.32	26909	0	27278	52	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+QG2818  15.32	26910	0	27279	53	G	694002	                    Betacoronavirus
+JU4138  15.18	75048	9592	1528848	533737	G	40323	              Stenotrophomonas
+ECA2321  15.16	150137	68031	4051315	1032316	G	40323	              Stenotrophomonas
+JU4212  14.80	148287	148020	1018383	100152	S	615	                Serratia marcescens
+ECA1213  14.72	76801	12874	1608600	613755	G	1386	                Bacillus
+ECA1208  14.71	52383	51545	464444	151537	S	1428	                    Bacillus thuringiensis
+NIC1811  14.67	1915110	155806	62304337	1132074	G	507	              Alcaligenes
+ECA749  14.51	55101	3820	1203379	645997	G	2675229	                Peribacillus
+JU4226  14.44	72683	22450	374284	49309	G	234	                Brucella
+ECA1201  14.41	66260	65277	582235	161124	S	1428	                    Bacillus thuringiensis
+JU4231  14.40	24460	17109	659796	301345	G	613	              Serratia
+ECA1074  14.26	53394	0	293670	127	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA1074  14.26	53394	0	293672	128	G	694002	                    Betacoronavirus
+WN2073  14.26	20422	0	68745	104	G	694002	                    Betacoronavirus
+WN2073  14.26	20422	0	68745	104	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA1193  13.95	152420	9472	3741116	1133304	G	44249	                Paenibacillus
+ECA737  13.74	53234	4	269418	65	G	1350	                Enterococcus
+ECA737  13.73	53186	53186	269343	11	S	1352	                  Enterococcus faecium
+ECA785  13.65	41677	2	176543	27	G	629	              Yersinia
+ECA785  13.63	41632	41632	176479	11	S	630	                Yersinia enterocolitica
+WN2112  13.53	21291	21291	236740	105604	S	419475	                  Brucella pseudogrignonensis
+NIC1811  13.37	1745794	1745736	34409127	639657	S	511	                Alcaligenes faecalis
+QG2855  13.33	31131	2695	682770	447927	G	44249	                Paenibacillus
+ECA749  13.14	49932	49932	772986	420397	S	450367	                  Peribacillus frigoritolerans
+CX11254  13.12	132618	53950	1580879	539580	G	1883	                Streptomyces
+ECA1212  12.97	107334	7055	2598259	932967	G	44249	                Paenibacillus
+ECA1214  12.81	55439	3861	1333546	600127	G	44249	                Paenibacillus
+NIC1804  12.76	358027	108527	1972108	58775	G	234	                Brucella
+NIC269  12.67	77502	43423	1100765	641288	G	40323	              Stenotrophomonas
+NIC1803  12.65	394604	21091	2049777	77701	G	55968	                Leucobacter
+ECA1253  12.59	52835	3859	1262236	558061	G	44249	                Paenibacillus
+ECA1203  12.58	55061	54171	485671	151151	S	1428	                    Bacillus thuringiensis
+QG2825  12.54	27484	0	51294	62	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+QG2825  12.54	27484	0	51296	64	G	694002	                    Betacoronavirus
+ECA2654  12.52	14873	0	62938	110	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA2654  12.52	14876	0	62941	111	G	694002	                    Betacoronavirus
+NIC2011  12.34	215984	65283	2011442	277936	G	354349	              Pseudochrobactrum
+JU4174  12.23	19425	14759	556060	291047	G	613	              Serratia
+ECA2649  12.21	15207	0	75371	106	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA2649  12.21	15207	0	75376	107	G	694002	                    Betacoronavirus
+ECA1185  12.04	63206	11051	1329186	503489	G	1386	                Bacillus
+NIC1749  12.03	12683	3513	380942	203324	G	2800373	                Priestia
+ECA728  11.99	49939	4235	1077914	629459	G	44249	                Paenibacillus
+JR4305  11.98	21432	2476	240189	147254	G	4564	                                            Triticum
+ECA1215  11.92	63248	3880	1552024	697024	G	44249	                Paenibacillus
+ECA2650  11.87	6907	0	12613	88	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA2650  11.87	6907	0	12615	89	G	694002	                    Betacoronavirus
+ECA1191  11.69	42627	11096	980815	441360	G	222	              Achromobacter
+ECA716  11.65	43417	0	47764	58	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA716  11.65	43417	0	47765	59	G	694002	                    Betacoronavirus
+JU755  11.58	126738	6589	640079	54530	G	55968	                Leucobacter
+QG2824  11.50	18823	0	61197	3	G	2842664	                Emesvirus
+QG2824  11.50	18823	0	61197	3	S	329852	                  Emesvirus zinderi
+ECA2648  11.26	15169	0	58170	119	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+ECA2648  11.26	15171	1	58176	120	G	694002	                    Betacoronavirus
+NIC1811  11.14	1454872	1454872	7189672	28348	S	293	                Brevundimonas diminuta
+ECA2417  11.12	104532	23178	1755280	423337	G	234	                Brucella
+NIC1804  11.08	310981	310981	2662753	193384	S	2067959	                  Lelliottia sp. AC1
+JU1511  10.93	27450	0	33779	118	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+JU1511  10.93	27455	5	33789	120	G	694002	                    Betacoronavirus
+WN2147  10.90	16433	4262	303564	146157	G	1883	                Streptomyces
+JU4196  10.88	38779	38779	332589	126226	S	1736046	                    Streptomyces sp. SM18
+ECA347  10.68	76910	4190	2332327	1186985	G	44249	                Paenibacillus
+NIC1781  10.48	462352	462352	2274441	36610	S	293	                Brevundimonas diminuta
+ECA1229  10.37	51299	8550	1080856	446948	G	1386	                Bacillus
+ECA1297  10.26	38828	10494	952940	458205	G	1883	                Streptomyces
+NIC1604  10.16	14025	0	25685	52	S	694009	                        Severe acute respiratory syndrome-related coronavirus
+NIC1604  10.16	14026	0	25688	54	G	694002	                    Betacoronavirus
+ECA1191  10.13	36954	183	225451	71483	G	528	                Ochrobactrum
+QG2834  10.08	23711	0	108297	8	G	149438	                                              Lasthenia
+QG2834  10.08	23711	23711	108297	8	S	149440	                                                Lasthenia californica
