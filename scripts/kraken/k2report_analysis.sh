@@ -3,15 +3,15 @@
 if [[ $1 == "c_elegans" ]]; then
     k2reports="../../processed_data/Kraken2/c_elegans"
     Kraken_class_file="$k2reports/c_elegans_Kraken2classification_10perc.txt"
-    biasedfile="$k2reports/c_elegans_allWS_2perc_Rickettsiales.txt"
+    biasedfile="$k2reports/c_elegans_allWS_4perc_Rickettsiales.txt"
 elif [[ $1 == "c_tropicalis" ]]; then
     k2reports="../../processed_data/Kraken2/c_tropicalis"
     Kraken_class_file="$k2reports/c_tropicalis_Kraken2classification_10perc.txt"
-    biasedfile="$k2reports/analysis/c_tropicalis_allWS_2perc_Rickettsiales.txt"
+    biasedfile="$k2reports/c_tropicalis_allWS_4perc_Rickettsiales.txt"
 elif [[ $1 == "c_briggsae" ]]; then
     k2reports="../../processed_data/c_briggsae/Kraken2/wild_strains"
     Kraken_class_file="$k2reports/analysis/c_briggsae_Kraken2classification_10perc.txt"
-    biasedfile="$k2reports/c_briggsae_allWS_2perc_Rickettsiales.txt"
+    biasedfile="$k2reports/c_briggsae_allWS_4perc_Rickettsiales.txt"
 elif [[ $1 == "control" ]]; then
     infected="../../processed_data/Kraken2/c_elegans/microsporidia_ctr/infected"
     not_infected="../../processed_data/Kraken2/c_elegans/microsporidia_ctr/notInfected"
