@@ -97,9 +97,9 @@ plt_data <- ctr_plot %>% dplyr::bind_rows(species_plot) %>%
                                             "C. elegans"   = "<i>C. elegans</i>",
                                             "C. briggsae"  = "<i>C. briggsae</i>",
                                             "C. tropicalis"= "<i>C. tropicalis</i>",
-                                            "C.e. control (infected)"     = "<i>C. elegans</i><br>Nematocide-infected",
+                                            "C.e. control (infected)"     = "<i>C. elegans<br>Nematocida</i>-infected",
                                             "C.e. control (not-infected)" = "<i>C. elegans</i><br>Uninfected")) %>%
-  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C. elegans</i><br>Nematocide-infected","<i>C. elegans</i><br>Uninfected","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
+  dplyr::mutate(species_lab = factor(species_lab, levels = c("<i>C. elegans<br>Nematocida</i>-infected","<i>C. elegans</i><br>Uninfected","<i>C. elegans</i>","<i>C. briggsae</i>","<i>C. tropicalis</i>")))
 
 fig_main <- ggplot(plt_data, aes(x = strain, y = genus, fill = perc)) +
   geom_tile(color = "white", linewidth = 0.15) +
@@ -113,12 +113,13 @@ fig_main <- ggplot(plt_data, aes(x = strain, y = genus, fill = perc)) +
     legend.title = element_text(size = 10, color = 'black'),
     legend.text  = element_text(size = 8),
     axis.text.x = element_text(angle = 75, vjust = 1, hjust = 1, color = 'black', size = 10),
-    strip.text = ggtext::element_markdown(face = "bold", size = 7.3),
+    strip.text = ggtext::element_markdown(color = 'black',size = 8),
     panel.spacing.x = unit(0.2, "lines"),
-    axis.text.y = element_text(size = 10, face = 'bold.italic', color = 'black'),
+    axis.text.y = element_text(size = 10, face = 'italic', color = 'black'),
     plot.margin = margin(l = 0.01, b = -1, t = 2, r = 2),
-    legend.position = 'bottom')
+    legend.position = 'bottom',
+    legend.margin = margin(t = -5, b = 0, l = 0, r = 0))    
 fig_main
 
-ggsave("../../plots/heatmap_final.png", no_cow_plt, width = 7.5, height = 5.5, dpi = 600)
+ggsave("../../plots/heatmap_final.png", fig_main, width = 7.5, height = 3.7, dpi = 600)
 
